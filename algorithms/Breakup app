@@ -1,0 +1,79 @@
+
+import java.util.*;
+import java.io.*;
+
+class TestClass {
+    public static void main(String args[] ){
+      Scanner s = new Scanner(System.in);
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int n = s.nextInt();//Test cases
+        
+        //Array for message
+        String st[] = new String[n];
+        
+        
+        int date1 = 0; 
+        int nodate = 0;
+        
+        s.nextLine();
+        if(n>=1 && n<=1000)
+            {
+                for(int i=0;i<n;i++)
+                {
+                    st[i] = s.nextLine();
+                }
+                for(int i=0;i<n;i++)
+                {   //here i am first converting string to array  
+                    
+                    char ch[] = st[i].toCharArray();
+                    //checking if the message from girl or menot
+                    if(ch[0]=='G')
+                    {
+                        for(int j=1;j<ch.length;j++)
+                        {   //and checking if the char array have any digits
+                            if(Character.isDigit(ch[j]))
+                            {
+                                //and then comparing it 
+                                int x = Character.getNumericValue(ch[j]);
+                                int y = Character.getNumericValue(ch[j+1]);
+                                        
+                                if((x==1 && y==9)||(x==2 && y==0))
+                                {date1 = date1 + 2;}
+                                else
+                                {nodate = nodate+2;}
+                                
+                                break;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        for(int j=1;j<ch.length;j++)
+                        {
+                            if(Character.isDigit(ch[j]))
+                            {
+                                int x = Character.getNumericValue(ch[j]);
+                                int y = Character.getNumericValue(ch[j+1]);
+                                 
+                                if((x==1 && y==9)||(x==2 && y==0))
+                                {date1 = date1 +1;}
+                                else
+                                {nodate = nodate+1;}
+                                
+                                break;
+                            }
+                        }
+                    }
+                    
+                }
+                if(nodate>date1)
+                System.out.println("No Date");
+                else if(nodate==date1)
+                System.out.println("No Date");
+                else 
+                System.out.println("Date");
+                
+            }
+        
+    }
+}

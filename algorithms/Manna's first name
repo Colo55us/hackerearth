@@ -1,0 +1,48 @@
+
+
+
+//import for Scanner and other utility classes
+import java.util.*;
+
+
+class TestClass {
+    public static void main(String args[] ) throws Exception {
+       
+     
+     Scanner s1 = new Scanner(System.in);
+     int n = s1.nextInt();
+     String s[] = new String[n];
+     for(int i=0;i<n;i++)
+     {
+         s[i] = s1.next();
+     }
+     
+     //array for the count of "SUVO"
+     int suvo[] = new int[n];
+     
+     //array for the count for"SUVOJIT"
+     int suvojit[] = new int[n];
+     
+     for(int i=0;i<n;i++)
+     {  char c[] = s[i].toCharArray();
+         for(int j=0;j<c.length-3;j++)
+         {
+             if(c[j]=='S' && c[j+1]=='U' && c[j+2]=='V' && c[j+3]=='O')
+             {if(c.length-j>=7 && c[j+4]=='J' && c[j+5]=='I' && c[j+6]=='T')
+               suvojit[i]+=1;
+              
+             else
+               suvo[i]+=1;
+                
+             }
+         }
+     }
+     for(int i=0;i<n;i++)
+     {
+         System.out.println("SUVO = "+suvo[i]+", SUVOJIT = "+suvojit[i]);
+     }
+     
+     
+    }
+}
+

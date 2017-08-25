@@ -1,0 +1,42 @@
+
+
+
+//import for Scanner and other utility classes
+import java.util.*;
+
+
+class TestClass {
+    public static void main(String args[] ) throws Exception {
+      Scanner s1 = new Scanner(System.in);
+      int n = s1.nextInt();
+      int a[] = new int[n];
+      int temp=0;
+      for(int i=0;i<n;i++)
+      {
+          a[i] = s1.nextInt();
+      }
+      for(int i=0;i<n-1;i++)
+      {
+          for(int j=i+1;j<n;j++)
+          {
+              if(a[i]>a[j])
+              {
+                  temp = a[i];
+                  a[i] = a[j];
+                  a[j] = temp;
+                  
+              }
+          }
+      }
+      int sum = 0;
+      for(int i=0;i<n;i++)
+      {
+          sum = sum + a[i];
+      }
+      int min = sum - a[n-1];
+      int max = sum - a[0];
+      System.out.println(min+" "+max);
+      
+    }
+}
+

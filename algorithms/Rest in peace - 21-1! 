@@ -1,0 +1,37 @@
+
+import java.util.Scanner;
+import java.util.regex.*;
+
+
+class TestClass {
+    public static void main(String args[] ) throws Exception {
+       Scanner s1 = new Scanner(System.in);
+       int n = s1.nextInt();
+       
+       //streak is an array for storing flag if 1 then streak broken and if 0 then strak lives
+       int streak[] = new int[n];
+       for(int i=0;i<n;i++)
+       { 
+           String in = s1.next();
+           if(Integer.parseInt(in)%21==0 || in.contains("21"))
+           {
+               streak[i] = 1;
+              
+           }
+          
+           else
+           {
+               streak[i] = 0;
+           }
+       }
+       for(int i=0;i<n;i++)
+       {
+           if(streak[i]==1)
+           System.out.println("The streak is broken!");
+           else
+           System.out.println("The streak lives still in our heart!");
+       }
+       
+    }
+}
+s

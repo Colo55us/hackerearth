@@ -1,0 +1,56 @@
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+//import for Scanner and other utility classes
+import java.util.*;
+
+
+class TestClass {
+    public static void main(String args[] ) throws Exception {
+       
+        Scanner scan = new Scanner(System.in);
+        int t = scan.nextInt();
+        int ta[] = new int[t];
+    
+        for(int i=0;i<t;i++)
+        {
+            ta[i] = scan.nextInt();
+        }
+        int q = scan.nextInt();
+        int target[] = new int[q];
+        int qa[] = new int[q];
+        for(int i=0;i<q;i++)
+        {
+            qa[i] = scan.nextInt();
+        }
+        for(int i=0;i<q;i++)
+        {   
+            int total =0;
+           for(int j=0;j<t;j++)
+           {
+               if(qa[i]>total)
+                 {
+                    total+=ta[j];
+                    target[i] = j;
+                   
+                  }
+                 
+            }
+        }
+        int sum = 0;
+        for(int i=0;i<t;i++)
+        {
+         sum+=ta[i];
+        }
+        for(int i=0;i<q;i++)
+        {
+            if(qa[i]>sum)
+                System.out.println("-1");
+            else
+                System.out.println(target[i]+1);
+        }
+      
+    }
+}
+
